@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+        <!-- 1. # 找出数组arr=[1, -2, 4, -7....]中的最大连续子序列之和，如[1,2,3,-4]为1+2+3=6。  -->
+    <script>
+        var arr = [6,-3,-2,7,-15,1,2,2]
+        function normal(arr) {
+            var maxSum = arr[0];
+            for (var i = 0; i < arr.length; i++) {
+                var sum = arr[i];
+                for (var j = i+1; j < arr.length; j++) {
+                    sum += arr[j]
+                    if (maxSum < sum) {
+                        maxSum = sum;
+                    }
+                    console.log('sum is '+sum);
+                }
+            }
+            return maxSum;
+        }
+        function dp(arr) {
+            var max = arr[0];
+            var res = arr[0];
+            for (var i = 1; i < arr.length; i++) {
+                max = Math.max(max + arr[i], arr[i]);
+                res = Math.max(max, res);
+            }
+            return res
+        }
+
+    </script>
+</body>
+
+</html>

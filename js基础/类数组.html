@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+        var obj={
+            "0":'a',
+            "1":'b',
+            "2":'c',
+            "length":3,
+            "push:":Array.prototype.push,
+            "splice":Array.prototype.splice
+        }
+        // 类数组属性要为索引（数字）属性，必须要有length属性，最好加上push
+        // 加上splice就变成 [] 了
+        // Array.prototype.push = function(target){
+        //     obj[obj.length] = target;
+        //     obj.length++
+        // }
+
+        //问题  
+        // obj.push('c');
+        // obj.push('d'); 后 obj是什么样 
+        //要懂得push的关键原理
+        var obj={
+            "2":'c',
+            "3":'b',
+            "length":2,
+            "push:":Array.prototype.push,
+            "splice":Array.prototype.splice
+        }
+
+
+
+    </script>
+</body>
+</html>

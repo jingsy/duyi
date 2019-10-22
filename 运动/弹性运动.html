@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+        }
+
+    </style>
+
+</head>
+<body>
+    <div></div>
+
+    <script>
+        var divObj = document.getElementsByTagName('div')[0];
+        divObj.onclick=function(){
+           startMove(this,400);
+        }
+        function startMove(dom,target){
+            var timer=0;
+            var a =3;
+            var speed =0;
+            clearInterval(timer);
+            timer=setInterval(function(){
+                a = (target-dom.offsetLeft)/5;
+                speed = speed*0.8+a;
+
+                //绝对值小于1 看成是停止
+                if(Math.abs(speed)<1 && Math.abs(target-dom.offsetLeft)<1){
+                    clearInterval(timer);
+                    dom.style.left=target+'px';
+                }else{
+                    dom.style.left = dom.offsetLeft + speed + "px";
+
+                }
+            },30);
+        }
+    
+    </script>
+</body>
+</html>

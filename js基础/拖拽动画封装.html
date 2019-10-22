@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background-color:red;
+            cursor: pointer;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+    </style>
+</head>
+<body>
+    
+    <div>123</div>
+    <script>
+        var div = document.getElementsByTagName('div')[0];
+        var body = document.getElementsByTagName('body')[0];
+        function drag(ele,wrap){
+            //需要的变量
+                //拖拽状态drag 默认为false
+            var drag = false;
+                //鼠标到浏览器的距离 X,Y, div到浏览器的距离 eleX, eleY，以及dis
+                //ele边框到鼠标到横纵坐标距离, disX = X - eleX, disY = Y - eleY
+            var X,
+                Y,
+                eleX,
+                eleY,
+                disX,
+                disY = 0;
+
+            //拖拽过程 onmousedown, onmousemove, onmouseup
+            ele.onmousedown = function (e){
+                //1.激活drag状态
+                drag=true;
+                //2.获得鼠标的event(兼容写法)
+                var event = e || window.event;
+                //3.获得参数
+                X = event.clientX;
+                Y = event.clientY;
+                //4.计算距离
+                eleX = ele.offsetLeft;
+                disX = X -eleX;
+
+                eleY = ele.offsetTop;
+                disY = Y -eleY;
+                console.log("1");
+                body.onmousemove = function (e){
+                if(drag){
+                    var event = e || window.event;
+                    ele.style.left = event.clientX-disX+"px";
+                    ele.style.top = event.clientY-disY+"px";
+                }
+            }
+                ele.onmouseup = function (){
+                    drag=false;
+                }
+            }
+            
+        }
+        drag(div,body);
+    </script>
+</body>
+</html>

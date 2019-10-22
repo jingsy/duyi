@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul> -->
+
+    <script>
+         var arr = [{name: 'cst', age: '18'}, 
+        {name: 'jc', age: '20'}, 
+        {name: 'dxm', age: '50'},
+        {name: 'dcg', age: '30'}];
+        //1.forearch
+        //foreach 遍历
+        //ele 单独对象
+        //self 整个数组
+        // personArr.forEach(function(ele, index, self){
+        //     console.log(ele, index, self);
+
+        //     console.log(this[index]);
+        // });
+        //foreach 可以传第二个参数 会影响到函数执行每一次的this是谁。如果不传打印的是window
+        // personArr.forEach(function(ele, index, self){
+        //     // console.log(ele, index, self,this);
+        //     this[index].innerText=ele.name;
+
+        // },document.gpetElementsByTagName('li'));
+
+        // // 1. funtion 2.length 3.funtion this ->arguments[1]
+
+        // Array.prototype.myForEach = function (func){
+        //     var _arr=this,len = _arr.length, param2 = arguments[1] || window;
+        // }
+        
+        //filter
+        //function ele index slef this
+        //filter() = > [] 返回新的数组
+        // //
+        // var newArr = personArr.filter(function(ele,index,self){
+        //     // console.log(ele, index, self, this);
+        //     if(ele.gender=="male"){
+        //         return false;
+        //     }else{
+        //         return true; //所有的东西留下来
+        //     }
+        //     // return false;
+        // },{gender:"male"});
+
+        // var newArr = arr.filter(function(ele,index,self){
+        //     var reg = /c{1}/;
+        //     if(reg.exec(ele.name)){
+        //         return true;
+        //     }else{
+        //         return false;
+        //     }
+        // });
+        // var finalArr = newArr.map(function(ele,index,self){
+        //     return  "name: "+String(ele.name)+ " age: "+(parseInt(ele.age)+parseInt(ele.age));
+        // });
+        
+        //map 映射 x->y
+        //map 返回新数组 function ele index self
+        //
+        // var newArr = personArr.map(function(ele, index, self){
+
+        //     // console.log(ele,index,self,this);
+        //     //产生新数组
+        //     return ele.name +10;
+        // },{name:"a"});
+        
+        //every
+        //每一次都返回true 最后就返回true 
+        // var flag = personArr.every(function(ele,index,self){
+        //     if(ele.name=="a"){
+        //         return true;
+        //     }
+           
+        // },{name:"a"});
+        
+
+        var initialValue = {name:''}
+        //reduce 返回一个值 function,preValue, curValue index self, initialValue 初始化值
+        var lastValue = arr.reduce(per)
+        
+        
+    </script>
+</body>
+</html>

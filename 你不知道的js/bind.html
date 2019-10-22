@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        //bind 基本使用
+        // funtion A(){
+        // }
+        // var o={}
+        // var x=1;
+        // var y=2;
+        // var z=3;
+        // var B=A.bind(o,x,y);
+        // B("c");
+        //总结：
+        //1.函数A调用bind的时候，传递的参数o，x，y，z。。。。
+        //2.bind执行完后 返回的新的函数B
+        //3.函数的B在执行的时候 具体的功能实际上还是使用的A 
+        //只不过this指向变成了o
+        //4.函数B在执行的时候 你传递的参数会拼接到你所传递的x,y,z
+        //后面 一并在内部传递给A执行
+        //5.当你以new B（）方式执行的时候，构造函数依旧是A 而且
+        //o不会起到任何作用
+        Function.prototype.newBind = function(target){
+            //target:改变返回函数执行的this指向
+            var self=this;
+            var args=[].slice.call(arguments,1);
+            var f =function(){
+                var _arg = [].slice.call(arguments,0);
+                //真正执行的其实是调用bind的函数
+                //self 
+                return self.apply(target || window, args.concat(_arg));
+            }
+            return f;
+        }
+        function show(x,y,z,w){
+            console.log(this,x,y,z,w);
+        }
+        var Duyio={
+            x:20
+        }
+        var newShow = show.newBind(Duyio,1,2,3);
+        newShow(4);
+
+    </script>
+</body>
+</html>

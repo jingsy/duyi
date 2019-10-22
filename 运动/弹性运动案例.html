@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul,li{
+            list-style: none;
+        }
+        
+        ul{
+            left: 200px;
+            top: 200px;
+            position: relative;
+            border: 5px solid black;
+            display: inline-block;
+        }
+        li{
+            width: 100px;
+            height: 100px;
+            float: left;
+            border: 1px solid blue;
+            background-color: orange;
+        }
+        .cover{
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            left: 0;
+            background-color: red;
+            opacity: 0.5;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <span class="cover"></span>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+
+    <script>
+        var ul = document.getElementsByTagName('ul')[0];
+        var liObj = document.getElementsByTagName('li');
+        var span = document.getElementsByTagName('span')[0];
+        for(var i=0;i<liObj.length;i++){
+            liObj[i].onmouseenter=function(){
+                console.log('1');
+                startMove(span,this.offsetLeft);
+            }
+        }
+        
+        function startMove(dom,target){
+            var timer=null;
+            var a =3;
+            var speed =0;
+            clearInterval(timer);
+            timer=setInterval(function(){
+                a = (target-dom.offsetLeft)/5;
+                speed = speed*0.8+a;
+
+                //绝对值小于1 看成是停止
+                if(Math.abs(speed)<1 && Math.abs(target-dom.offsetLeft)<1){
+                    clearInterval(timer);
+                    dom.style.left=target+'px';
+                }else{
+                    dom.style.left = dom.offsetLeft + speed + "px";
+
+                }
+            },30);
+        }
+    
+    </script>
+</body>
+</html>

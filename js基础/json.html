@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+
+
+    <script>
+        //JSON.stringfiy   JSON-->string
+
+        //JSON.parse   string-->JSON
+        
+        //异步加载js
+            //1）defer，只有IE能用 好处：可以把js代码写到标签内部
+            //执行时间：只有文档完全解析完，才会执行（整个页面解析完毕
+            
+            //2）aysnc: 跟defer差不多，w3c标准方法，加载完立即执行
+            //只能加载外部脚本，标签里不能写js
+            
+
+            //3)创建script，按需加载，
+
+        //封装函数
+            function loadScript(url,callback){
+                var div = document.createElement("script");
+                script.type="text/javascript";
+            
+
+                if(script.readState){
+                    script.onreadystatechange = function(){
+                        if(script.readyState=="complete" || 
+                        script.readyState=="loaded");
+                        callback();
+                    }
+                }else{
+                    script.onload=function(){
+                        callback();
+                    }
+                }
+                script.src=url;
+                document.head.appendChild(script);
+            }
+
+            //1.创建document对象，开始解析web页面
+            //2.遇到link外部css，创建线程加载
+    </script>
+</body>
+</html>

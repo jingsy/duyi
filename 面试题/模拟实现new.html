@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    首先要知道new都干了什么：
+    1. 创建一个新的对象
+    2. 为这个对象设置原型
+    3. 将构造函数的this指向obj
+    4. 执行构造函数中代码
+    5. 返回这个新对象
+    
+    构造函数里默认返回this，如果我们自己改成return 基本类型值，则会被忽略，调用实例无影响 
+    如果我们改成引用类型的 则调用该实例得到的是这个引用值
+    <script>
+        function Person(name){
+            this.she = 'ma';
+            this.name = name;
+        };
+        function newObj(){
+            var obj = {};
+            var Constructor = [].shift.call(arguments);
+            obj.__proto__ = Constructor.prototype;
+            Constructor.apply(obj,arguments)
+            return obj;
+        }
+        var a = newObj(Person,'mayun');
+
+
+
+    </script>
+    
+</body>
+</html>

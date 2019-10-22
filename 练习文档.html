@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        div {
+            width: 0;
+            height: 0;
+            /* background-color: red; */
+            border: 100px solid red;
+            border-top-color: transparent;
+            border-right-color: transparent;
+            border-left-color: transparent;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+
+    <script>
+
+        //防抖
+        // function deBounce(handler, delay) {
+        //     var timer = null;
+        //     return function () {
+        //         var self = this;
+        //         var arg = arguments;
+
+        //         clearTimeout(timer)
+        //         timer = setTimeout(function () {
+        //             handler.apply(self,arg);
+        //         }, delay)
+        //     }
+        // }
+        // function Ajax(e) {
+        //     console.log('sent');
+        // }
+
+        // var oInput = document.getElementById('input');
+        // oInput.oninput = deBounce(Ajax,1000);
+
+        //节流
+        // var count = document.getElementById('count');
+        // var btn = document.getElementById("btn");
+        // var num = 1;
+        // btn.onclick = throttle(Ajax,2000)
+
+
+        // function throttle(handler,delay){
+        //     var lastTime = 0;
+        //     return function(){
+        //         var curTime = new Date().getTime();
+        //         if(curTime-lastTime>delay){
+        //             handler.apply(this,arguments);
+        //             lastTime=curTime;
+        //         }
+        //     }
+        // }
+
+        // Document.getElementById('demo').innerText='hi';
+
+        //继承
+        //原型链
+        // function Grand (name){
+        //     this.name=name;
+        // }
+        // Grand.prototype.lastname="Li";
+        // // var grand=new Grand();
+        // function Father(name){
+        //     this.name="hehe";
+        // }
+        // Father.prototype=new Grand();
+        // var father = new Father();
+        // console.log(father.lastname);
+
+        //构造函数
+        // function A(name,age){
+        //     this.name=name;
+        //     this.age=age;
+        // }
+        // function B(name,age,height){
+        //     A.call(this,name,age);
+        //     this.height = height;
+        // }
+        // var b = new B("a","19","120");
+
+        //共享原型
+        // function A (){
+
+        // }
+        // A.prototype.name="hello";
+        // function B(){
+
+        // }
+        // B.prototype = A.prototype;
+
+        // var b = new B();
+
+        //圣杯模型
+        // function inherit(Target,Origin){
+        //     function F(){};
+        //     F.prototype=Origin.prototype;
+        //     Target.prototype=new F();
+        //     Target.prototype.constructor=Target;
+        //     Target.prototype.uber=Origin.prototype;
+        // }
+        // function course(name,age){
+        //     console.log(age); //u
+        //     console.log(arguments[1]); //u
+        //     arguments[1]=2;
+        //     console.log(age);//u
+        //     console.log(arguments[1]); 2
+        // }
+        // course("第一教育");
+
+        //var str="abc";
+        // 为啥 原始值可以用方法和属性str.length;
+        // 其实：new String(str).length
+
+        //圣杯模式
+        // function inherit (Target,Origin){
+        //     function F(){}
+        //     F.prototype=Origin.prototype;
+        //     Target.prototype=new F();
+        //     Target.prototype.constructor=Target;
+        //     Target.prototype.uber=Origin.prototype;
+        // }
+        // function Weekday(num){
+        //     if(num>=1&&num<=7){
+        //         var arr=["day1","day2","day3","day4","day5","day6","day7"];
+        //         var index=num-1;
+        //         return arr[index];
+        //     }else{
+        //         return "error";
+        //     }
+        // }
+
+        //with的运用，with改变作用域，在es5严格模式下不能用
+        // var obj  ={
+        //     a:123
+        // }
+        // function test (){
+        //     var a =234;
+        //     with(obj){
+        //         console.log(a);    //123
+        //     }
+        // }
+
+
+        //数组乱序
+        //方法1：普通版
+        //Math.random()要加括号
+        // var arr = [1,2,3,4,5,6,7,8,9];
+        // var newArr=[];
+        // while(arr.length>0){
+        //     var num= Math.floor(Math.random()*arr.length)  
+        //     newArr.push(arr[num]);
+        //     arr.splice(num,1);
+        // }
+        // console.log(newArr);
+        //方法2
+
+        // var arr = [1,2,3,4,5,6,7,8,9];
+        // arr.sort(function(a,b){
+        //     return Math.random()>0.5?1:-1;
+        // })
+        // console.log(arr);
+
+       
+
+      
+
+        ////数组去重
+        // var arr = [1,2,3,4,5,1,2,4];
+        // //方法1：set
+        // var set = new Set();
+        // for(var i=0;i<arr.length;i++){
+        //     if(!set.has(arr[i])){
+        //         set.add(arr[i]);
+        //     }
+        // }
+        // console.log(set);
+
+        //方法2:obj
+        // var arr = [1,2,3,4,5,1,2,4];
+        // var newArr=[];
+        // var obj ={};
+        // for(var i=0;i<arr.length;i++){
+        //     if(!obj[arr[i]]){
+        //         obj[arr[i]]="abc";
+        //         newArr.push(arr[i]);
+        //     }
+        // }
+        // console.log(Object.keys(obj));
+
+        //老师的方法
+        //方法1
+        // var obj={};
+        // for(var i=0;i<arr.length;i++){
+        //     obj[arr[i]]="abc";
+        // }
+        // // console.log(obj);
+        // console.log(Object.keys(obj));
+
+        //方法2；最简单
+        // console.log(Array.from(new Set(arr)));
+        //  var arr= [{id:1,name:"jack"},{id:2,name:"jerry"}];
+
+        //  function getId(arr,id){
+        //     for(var i=0;i<arr.length;i++){
+        //         if(arr[i].id==id){
+        //             return arr[i].name;
+        //         }
+        //     }  
+        //  }
+        //   console.log(getId(arr,1));  
+
+        //把下面用最效率的方法连成字符串
+        // var arr=["a","a","a","a","a","a","a","a",];
+        // var str=""
+        // for(var i=0;i<arr.length;i++){
+        //     str+=arr[i]
+        // }
+        // console.log(str);
+
+
+        //闭包累加器 不依赖外部变量 
+        // function add(){
+        //     var num =0;
+        //     function a(){
+        //         console.log(++num);
+        //     }
+        //     return a;
+        // }
+        // var myAdd = add();
+        // myAdd();
+        // myAdd();
+
+        //闭包做缓存
+        // function test(){
+        //     var food ='apple';
+        //     var obj = {
+        //         eatFood:function(){
+        //             if(food!=''){
+        //                 console.log('i am eating'+food);
+        //                 food='';
+        //             }else {
+        //                 console.log('nothing');
+        //             }
+        //         },
+        //         pushFood : function(myfood){
+        //             food = myFood;
+        //         }
+        //         // return obj
+        //     }
+        // }
+
+        // var person = test();
+        // person.eatFood();//apple
+        // person.eatFood();//nothing
+        // person.pushFood('babana');
+        // person.eatFood();//banana
+
+
+        //实现深度克隆
+        // function deepClone(origin, target) {
+        //     for (var prop in origin) {
+        //         if (origin.hasOwnProperty(prop)) {
+        //             if (typeof origin[prop] == 'object') {
+        //                 if (Object.prototype.toString.call(origin[prop]) == "[object Array]") {
+        //                     target[prop] = [];
+        //                 } else {
+        //                     target[prop] = {};
+        //                 }
+        //                 deepClone(origin[prop], target[prop]);
+        //             } else {
+        //                 target[prop] = origin[prop]
+        //             }
+        //         }
+        //     }
+        // }
+
+        //测试
+        // var obj = {
+        //     name:'a',
+        //     age:15,
+        //     page:["1","2"],
+        //     newobj:{
+        //         son:'ason'
+        //     }
+        // }
+        // var obj2={};
+
+        // //解构 浅度克隆
+        // obj2 = {...obj}
+
+        // Object.assign({}, src1, src2) 浅度克隆
+
+        // JSON.parse方法 深度克隆
+
+
+        // var arr = [1,2,2,3,3,"a","a","b","b"];
+
+
+        //统计字符串出现最多的次数
+        // const str = 'asddfgdfwwqeweqwezczxcsdfgdgd';
+        // function returnMaxCount(str) {
+        //     var arr = str.split('');
+        //     var obj = {};
+
+        //     arr.forEach(function (ele) {
+        //         if (obj[ele]) {
+        //             obj[ele]++
+        //         } else {
+        //             obj[ele] = 1
+        //         }
+        //     })
+        //     var max = 0;
+        //     var maxStr=''
+        //     for(var key in obj){
+        //         if(max<obj[key]){
+        //             max = obj[key]
+        //             maxStr = key;
+        //         }
+        //     }
+        //     return '出现最多: '+ maxStr+'出现了' +max+'次'
+
+        // }
+        //  console.log(returnMaxCount(str));
+
+
+        //递归1加到100
+        // function sumTo(n){
+        //     if(n==1){
+        //         return 1
+        //     }
+        //     return sumTo(n-1)+n;
+        // }
+
+        // function foo(){
+
+        //     var foo = 'foo';
+        //     return function bar(){
+
+        //         console.log(foo);
+
+        //     }
+        // }
+
+        // var test = foo();
+
+        // function log(str) {
+        //     var reg = /(\w)+/g;
+        //     var newStr = str.match(reg);
+        //     var finalStr = '(APP)' + newStr.join(' ');
+        //     return finalStr;
+        // }
+        // console.log(log('hello world'));
+        // console.log(log("'hello','world'"));
+
+        // var str1 = "'hello','world'"
+        // var str2 = 'hello world'
+        // var reg = /(\w)+/g;
+        // var newStr = str1.match(reg);
+        // var newStr2 = str2.match(reg);
+        // var finalStr = '(APP)' + newStr2.join(' ');
+        // console.log(newStr);
+        // console.log(newStr2);
+        // console.log(finalStr);
+        // console.log(newStr2);
+
+        //，输出数组的重复元素   1,1,2,3,3,3,4,4,5。
+
+        // function quickSort(arr) {
+        //     if (arr.length <= 1) {
+        //         return arr;
+        //     }
+        //     var pivotIndex = Math.floor(arr.length / 2);
+        //     var pivot = arr.splice(pivotIndex, 1)[0]
+        //     var left = [];
+        //     var right = [];
+        //     for (var i = 0; i < arr.length; i++) {
+        //         if (arr[i] < pivot) {
+        //             left.push(arr[i])
+        //         } else {
+        //             right.push(arr[i]);
+        //         }
+        //     }
+        //     return quickSort(left).concat([pivot], quickSort(right));
+        // }
+
+        //结果？？
+        // arr = [6, 3, 9, 12, 1]
+        // console.log(quickSort(arr))
+        // var a = {}; 
+        // b = { key: 'b' }; 
+        // c = { key: 'c' }; 
+        // a[b] = 123; a[c] = 456; 
+        // console.log(a[b]);
+
+       
+
+       
+
+
+      
+
+        // function inherit(Origin,Target){
+        //     function F(){};
+        //     F.prototype = Origin.prototype;
+        //     Target.prototype = new F();
+        //     Target.prototype.constructor = Target;
+        //     Target.prototype.uber = Origin;
+        // }
+
+        var a = [1, '1', 1];
+        var b = [1, 23, 12, 12];
+        var c = [{ id: 1 }, { id: 1 }, { id: 2 }];
+
+        //数组对象去重
+        //方法1
+        // function repeat(arr){
+        //     var obj = {}
+        //     var result = [];
+        //     for(var i=0;i<arr.length;i++){
+        //         if( !obj[arr[i].id]){
+        //            result.push(arr[i])
+        //            obj[arr[i].id] =true;
+        //         }
+        //     }
+        //     return result;
+        // }
+
+        // function repeat(arr) {
+        //     var obj = {}
+        //     arr = arr.reduce(function (item, next) {
+        //        obj[next.id] ? '' : obj[next.id] = true && item.push(next);
+        //        console.log(item);
+        //     //    console.log(next);
+        //         return item;
+        //     }, [])
+        //     return arr
+        // }
+
+
+    
+        
+    //一维数组转二维数组
+    // function getArr(arr, n) {
+    //         var innerArr = [];
+    //         var lineNum = arr.length / n
+    //         for (var i = 0; i < lineNum; i++) {
+    //             var temp = arr.slice(i * n, i * n + n)
+    //             innerArr.push(temp);
+    //         }
+    //         return innerArr;
+    //     }
+     //数组扁平化   
+        function flat(arr) {
+            var result = []
+            for (var i = 0; i < arr.length; i++) {
+                result = result.concat(arr[i])
+                console.log(result);
+            }
+            return result
+        }
+    </script>
+</body>
+
+</html>

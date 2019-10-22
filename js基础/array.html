@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+        <script>
+    //改变原数组
+    //1.push 返回修改后的长度
+    //2.pop 剪切数组最后一位，返回这一位
+    //3.shift 在数组前面减东西 返回该元素的值
+    //4.unshift 在数组前面加东西 返回数组
+    //5.reverse
+    //6.splice 返回切去的数
+    //splice(从第几位开始，截取多少长度，在切口处添加新的数据 )
+    //7.sort 
+    //1.必须写两个形参
+    //2.看返回值
+    //  1）当返回为负数，前面的数放在前面
+    //  2）返回正数，后面的放在前面
+    //  3）0，不动
+    // <!-- arr.sort(function(a,b){
+    //     if(a > b){
+    //         return 1;
+    //     }els(a<b){
+    //         return -1
+    //     }
+    // }); -->
+    //或者直接函数里return a-b （升序）  b-a（降序）
+
+
+    //不改变原数组
+    //concat,join,->split,toString,slice(从该位开始，截取到该位)
+    //join 跟 split 相互对应，
+
+    //类数组
+    //属性要为索引（数字）属性，必须有length属性，最好加上push
+    //如果加上Array.prototype.splice,就完全变成数组的样子了，功能也一样
+    //但还是有对象功能
+
+    //类数组要懂得push的内部原理
+    // Array.prototype.push = function(target){
+    //     obj[obj.length]=target;
+    //     obj.length++;
+    // }
+
+        // 给一个有序的数组，乱序
+        // var arr =[1,2,3,4,5,6,7];
+        // arr.sort(function(a,b){
+        //     return (Math.random()-Math.random());
+        // });
+        // console.log(arr);
+
+
+    //✅完成，数组去重
+    // var obj = {};
+    // var arr = [1,2,2,3,3,3];
+    // var newArr=[];
+    // for(var i=0;i<arr.length;i++){
+    //      if(!obj[arr[i]]){
+    //         obj[arr[i]]="abc";
+    //         newArr.push(arr[i]);
+    //      }
+    // }
+    // console.log(obj);
+    // console.log(newArr);
+        
+    
+    </script>
+</body>
+</html>

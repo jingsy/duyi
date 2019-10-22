@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        hello worldfeihf
+    </div>
+
+    <script>
+    //bom
+    //1.什么是bom
+        // browser object model
+        //主要处理浏览器窗口window 和 框架iframe
+
+    //2. window对象他有双层角色，即是通过js访问浏览器窗口的一个接口
+        // Window又是一个全局属性,玩转bom就是玩转window的属性和方法
+        // window.parent
+        // window.self=window
+        // window.name 给浏览器窗口起名字
+        // window.alert...
+        // window.confirm...
+        // window.open...
+
+
+    //3.bom 的组成
+        // 0)Window 表示浏览器窗口
+            // innerHeight (这两个包含滚动条)
+            // innerWidth
+            // clientXY（不包含滚动条）
+            // pageXOffet: (滚动条横向偏移量)
+            // pageYOffet: (滚动条纵向偏移量)
+
+        // 1)frames[]
+
+        // 2)Navigator 包含了客户端浏览器的信息
+            //Navigator.userAgent
+            //Navigator.cookieEabled
+            //Navigator.online 电脑是否联网
+            
+
+        // 3)History 包含了浏览器窗口访问过的url'
+        //.forward
+        //.back
+        //.go(-2)
+        //.go(2)
+
+        // 4)Loation 包含了当前url的信息
+            //location.herf
+            //location.hash(#锚点)  这个值没有重新刷新页面  #30
+            //location.host
+            //location.pathname   (/s)
+            //location.search    ( )
+            //location.protocol  (http)
+
+            //方法
+            // assign() 加载新文档  里面填网址
+            // reload(false) 重新加载当前文档  不填或者false直接拉取缓存
+            // replae()  用新文档替换当前文档
+        //
+        // 5)Screen 
+     
+
+
+    </script>
+</body>
+</html>

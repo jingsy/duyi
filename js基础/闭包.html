@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    闭包的作用
+    1.实现公有变量
+    eg。累加器
+    2.缓存（存储结构)
+    3.可以实现封装，属性私有化
+    function Deng(){
+        var wife = 'me';
+    }
+    var deng = new Deng();//访问不到wife
+    4.模块化开发，防止污染全局变量
+    解决方法是，在退出函数之前，将不使用的局部变量全部删除
+    #
+    缺点：消耗内存
+    <script>
+        //案例 为什么结果是10个10？
+        // function test() {
+        //     var arr = [];
+        //     for (var i = 0; i < 10; i++) {
+        //         arr[i] = function () {
+        //             console.log(i);
+        //         }
+        //     }
+        //     return arr;
+        // }
+        // var demo = test();
+        // demo[0]();
+
+        //解决方法---立即执行函数
+        //立即执行函数也可以有返回值    
+        // function test(){
+        //     var arr=[];
+        //     for(var i=0;i<10;i++){
+        //         (function(j){
+        //             arr[j]=function(){
+        //                 console.log(j);
+        //             }
+        //         }(i))
+        //     }
+        //     return arr;
+        // }
+        // var demo = test();
+        // for(var j=0;j<10;j++){
+        //     demo[j]();
+        // }
+
+        // //闭包举例
+        // function Person(name){
+        //     //new的时候发生的过程
+        //     //var this ={ 
+        //         // makeMoney:function(){}
+        //         // pay:function(){}
+        //     // }
+        //     var money=100;
+        //     this.makeMoney=function(){
+        //         money++;
+        //     }
+        //     this.pay=function(){
+        //         money--;
+        //     }
+        //     return this;
+        // }
+        // var people= new Person();
+
+        function a(){
+            var a =0;
+            return function b(){
+                a++
+                return a;
+            }
+        }
+
+        var aa= a();
+
+    </script>
+
+</body>
+
+</html>

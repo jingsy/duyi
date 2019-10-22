@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		
+
+	</style>
+</head>
+<body>
+	
+
+	<!-- 清除浮动：
+		不是不用浮动 而是清除浮动产生的不良影响 -->
+		<!-- 当父盒子没有定义高度，嵌套的盒子浮动之后，下边的元素会发生位置错误 -->
+
+	清除浮动的方法：
+		clear:left | right | both
+		最常用的是both
+
+		1.*额外标签法：1.在最后一个浮动元素后添加标签，然后用clear：both
+			如<div style="clear:both;"></div> 
+		这种方法不推荐使用
+
+		2.*overflow:
+			给浮动的父级元素使用overflow:hidden   ----bfc 格式化上下文
+			*如果有内容出了盒子，不能用这个方法
+
+
+
+		在父级元素增加一个类（伪元素清除浮动）
+		3.*clearfix  
+			.clearfix:after{
+				content:".";
+				display: block;
+				height;0;
+				line-height:0;
+				visibility:hidden;
+				clear:both;
+			}
+
+			//为了兼容ie浏览器
+			.clearfix{
+				zoom:1;
+			}
+</body>
+</html>

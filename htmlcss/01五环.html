@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .wrapper{
+            width: 400px;
+            height: 400px;
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            margin: -200px 0 0 -200px;
+            /* border: 1px solid black; */
+        }
+        .circle{
+            width: 100px;
+            height: 100px;
+            border: 10px solid black;
+            border-radius:50%; 
+            display: inline-block;
+        }
+        .one{
+            left: 0;
+            border-color: red;
+        }
+        .two{
+            position: absolute;
+            left:80px;
+            border-color: blue;
+        }
+        .three{
+            position: absolute;
+            left:160px;
+            border-color: brown;
+        }
+        .four{
+            position: absolute;
+            top:60px;
+            left:40px;
+            border-color: bisque;
+        }
+        .five{
+            position: absolute;
+            top:60px;
+            left:120px;
+            border-color: rgb(163, 137, 137);
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="one circle"></div>
+        <div class="two circle"></div>
+        <div class="three circle"></div>
+        <div class="four circle"></div>
+        <div class="five circle"></div>
+    </div>    
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+   .item{
+     background-color: red;
+     border: 1px solid black;
+     width: 100px;
+     height: 100px;
+   }
+  </style>
+</head>
+
+<body>
+ <div class="item"></div>
+ <div class="item"></div>
+ <div class="item"></div>
+ <div class="item"></div>
+ <div class="item"></div>
+  
+
+  <script>
+    // var item  = document.querySelectorAll('.item');
+    //改变dom结构后，无法设置颜色。
+
+    //var item = document.getElementsByClassName('item');
+    //改变dom结构后，可以设置颜色。
+    document.body.innerHTML+='<div>this is my</div>';
+
+    // 总结：querySelectorAll 维护的是一个静态的nodeList 
+    // getElementsByClassName维护的是一个动态的nodeList 是互相映射的
+
+    //最大的区别就是querySelectorAll的实现类似于一组元素的快照，而并非对文档结构进行搜索的动态查询。
+    //所谓快照就是把某个时刻dom中的结构记录下来，而不是通过查询dom结构动态获取。
+    //这样实现可以避免使用NodeList对象通常会引起的大多数性能问题，但是也会带来新的问题，
+    //比如dom结构发生变化，这个选择器就无法使用了。
+
+
+  </script>
+</body>
+
+</html>

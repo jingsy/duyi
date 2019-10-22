@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+            left: 100px;
+        }
+
+        #btn {
+            margin-top: 150px;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <button id="btn">btn</button>
+
+    <script>
+        var div = document.getElementsByTagName('div')[0];
+        var btn = document.getElementById('btn');
+
+        btn.onclick = function (){
+            startMove(div,400);
+        }
+
+        function startMove(dom,target) {
+                clearInterval(timer);
+                var speed = 8;
+                speed = target - dom.offsetLeft > 0 ? speed : -speed;
+                var timer = setInterval(function () {
+                    if (Math.abs(target - div.offsetLeft) < Math.abs(speed)) {
+                        clearInterval(timer);
+                    } else {
+                        dom.style.left = dom.offsetLeft + speed + "px";
+                    }
+                }, 20);
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+        var str = 'aabbccbdw';
+        
+        // var arr = str.slice('');
+        // var obj ={};
+        // Object.assign(Obj,arr) 
+        //{0: "a", 1: "a", 2: "b", 3: "b", 4: 
+        // "c", 5: "c", 6: "b", 7: "d", 8: "w"}
+
+        var map = {};
+        for(var i=0;i<str.length;i++){
+            var charX = str[i];
+            if(!map[charX]){
+                map[charX] = 1;
+            }else{
+                map[charX]++;
+            }
+        }
+       
+
+
+    </script>
+</body>
+</html>

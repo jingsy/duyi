@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- <div id="app">
+        <bro-one></bro-one>
+        <hr>
+        <bro-two></bro-two>
+    </div> -->
+
+    <input type="text" id="inp">
+    <span id="view">12</span>
+    
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script>
+        var obj ={};
+        var value ="demo";
+        Object.defineProperty(obj,'text',{
+            get: ()=>{
+                return value;
+            },
+            set: (val)=>{
+                view.innerText = val;
+                value =val;
+                inp.value = val;
+            }
+        })
+        // inp.value = obj.text;
+        // view.innerText = obj.text;
+       
+        inp.oninput =function(){
+            obj.text = this.value;
+            view.innerText =obj.text;
+        }
+
+
+
+    </script>
+</body>
+
+</html>

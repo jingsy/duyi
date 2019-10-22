@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+        // var str = 'i am a student'
+        // function reverse(str) {
+        //     var splitArr = str.split(' ');
+        //     var i=0;
+        //     var j=splitArr.length-1;
+        //     let swap = (arr, i, j) => {
+        //         var temp = arr[i];
+        //         arr[i] = arr[j];
+        //         arr[j] = temp;
+        //     }
+        //     while (i < j) {
+        //         swap(splitArr, i, j);
+        //         i++;
+        //         j--;
+        //     }
+        //     return splitArr.join(' ')
+        // }
+        // console.log(reverse(str))
+        // let pMergeHead = null;
+        // // write code here
+        // if (pHead1 === null) return pHead2;
+        // if (pHead2 === null) return pHead1;
+        // if (pHead1.val < pHead2.val) {
+        //     pMergeHead = pHead1;
+        //     pMergeHead.next = Merge(pHead1.next, pHead2);
+        // } else {
+        //     pMergeHead = pHead2;
+        //     pMergeHead.next = Merge(pHead1, pHead2.next);
+        // }
+        // return pMergeHead;
+
+        // function FindNumsAppearOnce(arr) {
+        //     // write code here
+        //     // return list, 比如[a,b]，其中ab是出现一次的两个数字
+        //     const map = {},
+        //         res = [];
+        //     for (let i = 0; i < array.length; i++) {
+        //         if (!map[array[i]]) {
+        //             map[array[i]] = 1;
+        //         } else {
+        //             map[array[i]]++;
+        //         }
+        //     }
+        //     for (let i = 0; i < array.length; i++) {
+        //         if (map[array[i]] === 1) {
+        //             res.push(array[i]);
+        //         }
+        //     }
+        //     return res;
+        // }
+
+        // var push = [1, 2, 3, 4, 5];
+        // // var pop = [4, 5, 3, 2, 1];
+        // var real = [5, 4, 3, 2, 1];
+        // function IsPopOrder(pushV, popV) {
+        //     var tempStack = [];
+        //     var index = 0;
+        //     for (var i = 0; i < pushV.length; i++) {
+        //         tempStack.push(pushV[i]);
+        //         // console.log(tempStack[i],popV[index]);
+
+        //         while (tempStack.length !== 0 && tempStack[tempStack.length - 1] == popV[index]) {
+        //             // console.log(popV[index]);
+        //             tempStack.pop();
+        //             index++;
+        //         }
+        //     }
+
+        //     if (tempStack.length == 0) {
+        //         return true;
+        //     } else {
+        //         return false;
+        //     }
+
+        // }
+
+        // // console.log(IsPopOrder(push, pop));
+        // console.log(IsPopOrder(push, real));
+        // var arr = [165, 170, 287, 92, 173, 249, 219, 130, 129, 293, 144, 214, 230, 60, 10, 111, 107, 154, 138, 36, 51, 109, 163, 17, 280, 156, 107, 237, 89, 126, 274, 60, 227, 137, 239, 32, 19, 243, 197, 68, 282, 70, 226, 182, 181, 130, 184, 58, 176, 215, 169, 87, 154, 164, 198, 128, 234, 182, 122, 282, 240, 242, 150, 173, 54, 116, 150, 151, 82, 248, 136, 252, 78, 220, 65, 94, 154, 3, 143, 6, 133, 26, 292, 9, 247, 230, 68, 8, 274, 97, 79, 151, 107, 95, 26, 247, 11, 213, 62, 4, 259, 170, 229, 193, 262, 227, 129, 107, 174, 15, 148, 123, 45, 77, 247, 33, 223, 158, 244, 185, 295, 150, 288, 291, 68, 266, 208, 295, 274, 183, 229, 168, 123, 161, 259, 10, 213, 143, 288, 99, 241, 111, 247, 291, 178, 279, 181, 77, 180, 140, 270, 228, 222, 43, 25, 45, 124, 257, 167, 98, 180, 169, 153, 190, 279, 171, 188, 119, 4, 250, 192, 188, 292, 82, 57, 155, 189, 17, 43, 76, 14, 278, 94, 261, 129, 137, 217, 229, 29, 200, 128, 263, 192, 265, 260, 35, 118, 20, 146, 71, 93, 261, 79, 152, 234, 87, 208, 53, 185, 256, 76, 182, 248, 70, 106, 267, 262, 193, 230, 278, 185, 70, 221, 159, 53, 138, 6, 39, 42, 119, 202, 219, 193, 270, 293, 276, 289, 111, 91, 30, 125, 233, 125, 108, 95, 8, 260, 47, 188, 193, 66, 183, 125, 93, 286, 128, 174, 134, 200, 57, 116, 9, 36, 180, 237, 108, 110, 191, 259, 23, 18, 130, 225, 158, 121, 59, 275, 5, 38, 278, 143, 281, 108, 157, 4, 193, 226, 280, 136, 259, 203, 234, 22, 26, 231, 29, 23, 230, 69, 207];
+        // function duplicateNum(arr){
+        //     var obj = {};
+        //     for(var i=0;i<arr.length;i++){
+        //         if(arr[i]<0)return -1
+        //         if(!obj[arr[i]]){
+        //             obj[arr[i]]=1
+        //         }else{
+        //             obj[arr[i]]++;
+        //         }
+        //     }
+        //     for(var prop in obj){
+        //         if(obj[prop]>1){
+        //             console.log(obj);
+
+        //             return +prop
+        //         }
+        //     }
+        // }
+
+        // function genCartesian(arr1,arr2){
+        //     for(var i=0;i<arr1.length;i++){
+
+        //     }
+
+        // }
+
+        // var cols = ['col1','col2']
+        // var list = [
+        //     {col1:2, col2:10},
+        //     {col1:2,col2:20},
+        //     {col1:1,col2:20},
+        //     {col1:1,col2:10},
+        //     {col1:1,col2:10},
+        //     {col1:3,col2:10},
+        //     {col1:3,col2:20},
+        // ]
+        // function sortBy(list, cols) {
+        //     var newlist = list.sort(function (a, b) {
+        //         return a[cols[0]] - b[cols[0]];
+        //     })
+        //     newlist.sort(function(a,b){
+        //         if(a[cols[0]]==b[cols[0]]){
+        //             return a[cols[1]]-b[cols[1]];
+        //         }
+        //     })
+        //     return newlist
+        // }
+        
+    //     var arr =[1,2,3,4]
+    //    var max =  arr.reduce(function(prev,cur,index,arr){
+    //         return prev + cur;
+    //     }, 0);
+
+
+// function search(arr) {
+// 	var maxSum = 0;
+// 		var sum = 0;
+// 	for(var i = 0; i<arr.length; i++) {
+// 		if(sum < 0) {
+// 			sum = arr[i];
+// 		} else {
+// 			sum += arr[i];
+// 		}
+ 
+// 		if(sum > maxSum) {
+// 			maxSum = sum;
+// 		}
+// 	}
+// 	return maxSum;
+// }
+ 
+// var arr = [-2, 6, -1, 5, 4, -7, 2, 3];
+// var arr = [-2,1,-3,4,-1,2,1,-5,4];
+// function sum(arr){
+//     var max = 0;
+//     for (var i = 0; i < arr.length; i++) {
+//         var temp = 0;
+//         for (var j = i; j < arr.length; j++) {
+//             temp += arr[j];
+//             if (max < temp)
+//                 max = temp;
+//         }
+//     }
+//     return max;
+// }
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+            div{
+                width: 100px;
+                height: 100px;
+                position: absolute;
+                top:0;
+                background-color: red;
+                left :0;
+                /* margin-bottom:50px; */
+                /* border: 0px solid black; */
+                opacity: 1;
+            }
+            #topDiv{
+                top:200px;
+            }
+            #bottomDiv{
+                top:400px;
+            }
+        </style>
+</head>
+<body>
+    <input type="text">
+    <button type="submit"></button>
+    <!-- <div></div>
+    <button id="btn">btn</button> -->
+    <div id="topDiv"></div>
+    <!-- <div id="bottomDiv"></div> -->
+    <!-- <div></div>
+    <div></div> -->
+    <script>
+    //     var timer =null;
+    //    var divArr = document.getElementsByTagName('div');
+    //     for(var i=0;i<divArr.length;i++){
+    //         divArr[i].onmouseenter = function(){
+    //             startMove(this,400);
+    //         }
+    //         divArr[i].onmouseleave = function(){
+    //             startMove(this,50);
+    //         }
+    //     }
+        //让某个物体固定的样式改变
+        // function startMove(dom,target){
+        //     clearInterval(dom.timer);
+        //     var speed = null,cur=null;
+        //      dom.timer = setInterval(function(){
+
+        //         cur = parseFloat(getStyle(dom,"width"));
+
+        //         speed=(target-cur)/7;
+        //         speed = speed>0?Math.ceil(speed):Math.floor(speed);
+
+        //         if(cur==target){
+        //             clearInterval(dom.timer);
+        //         }else{
+        //             dom.style.width = cur+speed+'px';
+        //         }
+        //     },40);
+        // }
+//***********************************************************
+        function getStyle(dom, attr){
+            if(window.getComputedStyle){
+                return window.getComputedStyle(dom,null)[attr];
+            }else{
+                return dom.currentStyle[attr];
+            }
+        }
+
+//***********************************************************
+        //加强版函数，传入任意的样式 都可以改变
+        // var timer =null;
+        // var divArr = document.getElementsByTagName('div');
+    
+        //     divArr[0].onclick = function(){
+        //         startMove(this,"opacity",50);
+        //     }
+        //     divArr[1].onclick = function(){
+        //         startMove(this,"width",500);
+        //     }
+        //     divArr[2].onclick = function(){
+        //         startMove(this,"height",400);
+        //     }
+        //     divArr[3].onclick = function(){
+        //         startMove(this,"borderWidth",10);
+        //     }
+
+        
+        // function startMove(dom,attr,target){
+        //     clearInterval(dom.timer);
+        //     var speed =null,cur=null;
+        //     dom.timer=setInterval(function(){
+        //         if(attr=='opacity'){
+        //             cur=parseFloat(getStyle(dom,attr))*100;
+        //         }else{
+        //             cur=parseInt(getStyle(dom,attr));
+        //         }
+        //         speed =(target-cur)/7;
+        //         speed = speed>0?Math.ceil(speed):Math.floor(speed);
+        //         if(cur==target){
+        //             clearInterval(dom.timer);
+        //         }
+        //         if(attr=='opacity'){
+        //             dom.style.opacity=(cur + speed)/100;
+        //         }else{
+        //             dom.style[attr]=cur+speed +"px";
+        //         }
+        //     },30);
+        // }
+//***********************************************************
+
+        //width ->100 400 height 100 400 left 0 200 top 200 300 opa 1 0.5
+        var timer =null;
+        var oTopDiv = document.getElementById('topDiv');
+        var oBottomDiv=document.getElementById('bottomDiv');
+
+        oTopDiv.onclick = function (){
+            startMove(this,{width:400,height:400,left:200,top:300,opacity:50},function(){
+                startMove(oBottomDiv,{width:200,height:700,left:100,top:600,opacity:20},function(){
+                    alert('over');
+                });
+            });
+        }
+        // function startMove(dom,attrObj,callback){
+        //     clearInterval(dom.timer);
+        //     var speed=null,cur = null;
+        //     dom.timer = setInterval(function(){
+        //         var bstop = true;
+        //         //改变多个值
+        //         for(var attr in attrObj){
+        //             if(attr=='opacity'){
+        //                 cur=parseFloat(getStyle(dom,attr))*100;
+        //             }else{
+        //                 cur=parseInt(getStyle(dom,attr));
+        //             }
+        //             speed = (attrObj[attr]-cur)/7;
+        //             speed = speed>0?Math.ceil(speed):Math.floor(speed);
+        //             if(attr =='opacity'){
+        //                 dom.style.opacity=(cur+speed)/100;
+        //             }else{
+        //                 dom.style[attr]=cur +speed+'px';
+        //             }
+        //             if(cur !=attrObj[attr]){
+        //                 bstop=false;
+        //             }
+        //         }
+        //         if(bstop){
+        //             clearInterval(dom.timer);
+        //             // console.log('over');
+        //             typeof callback =='function' && callback();
+        //         }
+        //     },30);
+        // }
+
+        //*****************************************************
+        //加速运动
+
+    </script>
+</body>
+</html>

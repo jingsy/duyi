@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        var arr=  [1,2,3,4,5,3,6,4,7];
+        //for in
+        //遍历对象 for in 原型也会被拿出来
+        //for(var prop in obj){
+            //console.log(obj.prop);  ==>这样写 打印都是undefined
+            //因为会转换为 obj['prop']==>obj没有prop这个属性
+            
+        //}
+        //1. prop ==>把对象的每个属性名遍历出来 都是string，，原型也会被拿出来
+        //2.
+        // 这个方法会把你自己设置的原型打印出来，但是系统设置的原型不会打印出来
+    
+
+        //hasOwnProperty(prop)
+        //每个对象都有这个方法 hasOwnProperty(prop)
+        //判断属性是不是自己的 
+        var obj  ={
+            name:'me',
+            age:12,
+            __proto__:{
+                hername:'she'
+            }
+        }
+        Object.prototype.myname='haha';
+        // for(var prop in obj){
+        //     // if(obj.hasOwnProperty(prop)){
+        //         console.log(prop);
+        //     // }
+        // }
+
+        // in
+        // 'name' in obj ==> true/false
+        //in 会把你父亲的也算成你的，他只能判断你这个对象能不能访问这个属性 原型的也算，使用概率低
+
+        // instanceof
+        //A instanceof B
+        // person instanceof Person
+        // A 对象 的原型链上有没有B的原型
+
+    </script>
+</body>
+</html>

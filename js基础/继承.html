@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+
+        //继承发展过程
+        //1.原型链
+        //过多的继承了没用的属性
+        //2.借用构造函数
+        //不能继承借用的构造函数的原型
+        //每次构造函数都要多走一个函数
+        //3.共享原型
+        //如： son.prototype=father.prototype
+        //不能随便修改自己的原型,因为另一个原型也会被修改 他们指向的同一个地址
+
+        //解决方法 创建一个中间层
+        //圣杯模式
+        // function inherit (Target,Origin){
+        //     function F(){}
+        //     F.prototype=Origin.prototype;
+        //     Target.prototype=new F();
+        //     Target.prototype.constructor=Target;
+        //     //知道继承自谁
+        //     Target.prototype.uber= Origin.prototype;
+        // }
+
+        // // 写法2
+        // var inherit = (function(){
+        //     var F = function(){};
+        //     return function(Target,Origin){
+        //         F.prototype=Origin.prototype;
+        //         Target.prototype=new F();
+        //         Target.prototype.constructor=Target;
+        //         //知道继承自谁
+        //         Target.prototype.uber= Origin.prototype;
+        //     }
+        // }());
+        //forin
+        //in
+        //hasownproperty
+        //instanceof
+
+
+        //重新学习原型
+        // function Person(){
+
+        // }
+        //1. Person.prototype 是这个构造函数的祖先
+        // 原型定义了构造函数的公有祖先，通过该构造函数产生的对象
+        //可以继承原型的属性和方法，原型也是一个对象
+
+        //2. 利用原型的特点和概念，可以提取共有属性
+
+        //3.如何查看原型，__proto__
+
+        //4.constructor 构造这个对象的构造函数
+
+
+        // function Grand(name){
+        //     this.name = name;
+        // }
+        // Grand.prototype.lastName = 'li';
+
+        // function Father(name){
+        //     this.name = name;
+        // }
+
+        // Father.prototype = new Grand();
+
+        // var dad = new Father();
+
+        
+        function inherit(Origin,Target){
+            function F(){};
+            F.prototype = Origin.prototype;
+            //现在Target的原型是new F ，
+            //new F的原型才是Origin.prototype(F.prototype)
+            //所以Target的原型上添加东西不会影响到Origin的原型
+            Target.prototype=new F();
+            Target.prototype.constructor =Target;   
+            Target.prototype.uber =Origin;
+        }
+
+        function Dad(){
+            this.card = ['a','b'];
+        }
+        Dad.prototype.smoke = function(){
+            console.log('i am smoking');
+        }
+        function Son(){
+
+        }
+            
+
+
+
+
+
+    </script>
+</body>
+
+</html>

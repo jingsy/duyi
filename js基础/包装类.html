@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+    // 原始值是不能有属性 和 方法的
+    // 如： 数字 分 原始值数字，数字对象
+    // 同理 字符串 原始值字符串 字符串对象
+
+    //undefined null 不能有属性 不能调包装类
+
+    //包装类 
+    num.len =3 ;
+     //new Number(4).len  =3 ;   delete
+     //
+     //new Number(4).len ==> undefined
+     console.log(num.len);
+     
+     var str ='abcd'
+     str.length = 2;
+     //打印length为 4
+     //对象字符串自带 .length这个属性
+        
+
+    // num.toString() ==> new NUumber(num).toString()
+    // Number构造函数里也有toString() 在这里被重写了
+   </script>
+</body>
+</html>

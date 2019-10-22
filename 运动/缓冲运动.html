@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+            /* div {
+                width: 100px;
+                height: 100px;
+                background-color: red;
+                position: absolute;
+                left: 500px;
+            }
+    
+            #btn {
+                margin-top: 150px;
+            } */
+            div{
+                width: 300px;
+                height: 50px;
+                position: absolute;
+                top:400px;
+                background-color: red;
+                left :-300px;
+            }
+            span{
+                height: 50px;
+                width: 50px;
+                background-color:yellow;
+                position: absolute;
+                right: -50px;
+            }
+        </style>
+</head>
+<body>
+    <!-- <div></div>
+    <button id="btn">btn</button> -->
+    <div>
+        <span></span>
+    </div>
+    <script>
+        var div = document.getElementsByTagName('div')[0];
+        // var span = document.getElementsByTagName('span')[0];
+        // var btn = document.getElementById('btn');
+        div.onmouseover = function (){
+            startMove(div,300);
+        }
+        // div.onmouseleave = function (){
+        //     startMove(div,-300);
+        // }
+        //物理速度距离目标越近就越小 到达目标时 速度为0
+
+        function startMove(dom,target){
+            clearInterval(timer);
+            var speed = null;
+            var timer = setInterval(function(){
+                speed=(target-dom.offsetLeft)/7;
+                
+                speed = speed>0?Math.ceil(speed):Math.floor(speed);
+
+                if(dom.offsetLeft==target){
+                    clearInterval(timer);
+                }else{
+                    dom.style.left = dom.offsetLeft+speed+'px';
+                }
+            },40);
+        }
+    
+    
+    </script>
+</body>
+</html>

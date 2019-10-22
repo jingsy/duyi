@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            width: 100px;
+            height: 100px;
+            background-color:red;
+            position: absolute;
+        }
+
+    </style>
+</head>
+<body>
+    <div></div>
+    <script>
+        var divObj = document.getElementsByTagName("div")[0];
+        
+        divObj.onclick = function (){
+            startMove(this);
+            console.log('1');
+        }
+
+        function startMove(dom){
+            var speedX =6;
+            var speedY =8;
+            var g = 3;
+            var timer = null;
+            clearInterval(dom.timer);
+            dom.timer = setInterval(function(){
+                speedY+=g;
+                var newX = dom.offsetLeft + speedX;
+                var newY = dom.offsetTop + speedY;
+                //整个浏览器的高度-他自身的高度
+                if(newY>=(document.documentElement.clientHeight-dom.clientHeight)){
+                    speedY*=-1;
+                    speedY*=0.8;
+                    speedX*=0.8;
+                    newY = document.documentElement.clientHeight-dom.clientHeight;
+
+                }
+                if(newY<=0){
+                    speedY*=-1;
+                    newY=0;
+                    speedY*=0.8;
+                    speedX*=0.8;
+                }
+                if(newX>=(document.documentElement.clientWidth-dom.clientWidth)){
+                    speedX*=-1;
+                    speedY*=0.8;
+                    speedX*=0.8;
+                    newX = document.documentElement.clientWidth-dom.clientWidth;
+                }
+                if(newX<=0){
+                    speedX*=-1;
+                    newX=0;
+                    speedY*=0.8;
+                    speedX*=0.8;
+                }
+                if(Math.abs(speedX)<1){
+                    speedX=0;
+                }
+                if(Math.abs(speedY)<1){
+                    speedY=0;
+                }
+                if(speedX==0 && speedY==0 && newY==document.documentElement.clientHeight-dom.clientHeight){
+                    clearInterval(dom.timer);
+                    console.log("done");
+                }else{
+                    dom.style.top=newY + 'px';
+                    dom.style.left=newX + 'px';
+                    
+                }
+                console.log('x'+speedX);
+                console.log('y'+speedY);
+
+            },30);
+
+
+        }
+    
+    </script>
+</body>
+</html>

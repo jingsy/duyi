@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+        
+        //1.函数预编译过程this->window
+        //2. 全局作用域里this->window
+        //3.call/apply改变函数运行this的指向
+        //4.谁调用这个function，this就是谁 
+
+        //5.arguments
+        //arguments.callee   找到自己的引用
+        // function test(){
+        //     console.log(arguments.callee==test);//true
+        //     //等于函数的引用
+        // }
+        // var num =(function(n){
+        //     if(num=1){
+        //         return 1;
+        //     }
+        //     return n*arguments.callee(n-1);
+        // }(10));
+
+        // //function.caller
+        // //caller不是arguments上的属性 是函数上的属性
+        // function demo(){
+        //     demo.caller;  //demo()
+        // }
+
+        //当 new xxx();
+        //会在构造函数里面发生(var了一个this)
+        //var this = Object.create(xxx.prototype)
+    </script>
+</body>
+</html>

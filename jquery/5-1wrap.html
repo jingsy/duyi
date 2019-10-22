@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    
+</head>
+<body>
+
+    <div class="demo">
+        <ul>
+            <li></li>
+        </ul>
+    </div>
+
+    <div></div>
+    <script src="./jquery.js"></script>
+    <script>
+
+        //对所有.demo进行包裹
+      $('.demo').wrap('<div></div>');
+      //jq对象也行
+      $('.demo').wrap($('.box'));
+      //传方法
+      $('.demo').wrap(function(index){
+          return '<div></div>';
+      })
+
+      //wrapInner
+      //顾名思义给内部包一层
+      $('.demo ul').wrapInner('<div></div>')
+
+      //wrapAll
+      
+      //upwrap 接触
+    </script>
+
+</body>
+</html>

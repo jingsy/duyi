@@ -1,0 +1,178 @@
+/* css初始化 */
+body,ul,dl,li,dd{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+}
+/* 从上到下开始写 */
+:root,body,.wrapper{
+    height: 100%;
+    min-width: 700px;
+}
+.header{
+    width: 100%;
+    height: 70px;
+    background-color: #354457;
+}
+.header .logo{
+    padding-left: 20px;
+    line-height: 70px;
+}
+.header .logo img{
+    width: 30px;
+    height: 30px;
+    /* 含有行级特点的元素才能用vertical-align */
+    vertical-align:middle;
+}
+.header .logo span{
+    color: #b3bcc5;
+    font-size: 14px;
+}
+
+.left-menu{
+    width: 200px;
+    background-color: #4d5e70;
+    height: calc(100% - 70px);
+    color: #b3bcc5;
+    float: left;
+}
+
+.left-menu dl dt{
+    padding-left: 20px;
+    font-weight: bold;
+    height: 40px;
+    line-height: 40px;
+}
+
+.left-menu dl dd{
+    height: 40px;
+    line-height: 40px;
+    cursor: pointer;
+    text-align: center;
+}
+.left-menu dl dd:hover{
+    background-color:rgba(255,255,255,.5);
+    color: #354475;
+}
+
+.left-menu dl dd.active{
+    background-color: #ddd;
+    color: #354475;
+}
+
+.right-content{
+    float: right;
+    width: calc(100% - 200px);
+    min-width: 500px;
+    position: relative;
+}
+
+.content{
+    position: absolute;
+    width: 100%;
+    display:none;
+}
+.right-content .content.content-active{
+    display: block;
+}
+.add-student{
+    display: none;
+}
+form{
+    width: 400px;
+    margin: 50px auto;
+}
+form label{
+    width: 100px;
+    display: inline-block;
+    text-align: right;
+    padding-right: 10px; 
+    color:#000;
+    font-size: 16px;
+}
+
+form label.label-sex{
+    width: 20px;
+    text-align: right;
+}
+form div{
+    margin: 10px 0;
+}
+
+.add-student form .btn{
+    padding: 5px 25px;
+}
+
+
+/* student-list css */
+.student-list {
+    /* display: none; */
+}
+.student-list table{
+    width: 100%;
+    min-width: 500px;
+}
+.student-list table thead{
+    background-color: #e3e8ee;
+    color: 3646987;
+    font-size: 14px;
+}
+.student-list table tbody{
+    background-color: #fff;
+    color: #000;
+    text-align: center;
+}
+
+.student-list table tr{
+    height: 30px;
+}
+.student-list table .btn{
+    padding: 3px 10px;
+    color:#fff;
+    font-size: 12px;
+    border:none;
+    cursor: pointer;
+    outline: none;
+}
+.student-list table .btn.edit{
+    background-color: #5cb85c;
+}
+.student-list table .btn.del{
+    background-color: #c9302c;
+}
+.student-list table .btn:hover{
+    opacity: .5;
+}
+
+/* 编辑弹框 */
+.student-list .modal{
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    position: fixed;
+    /* 相对于浏览器窗口定位 */
+    display: none;
+}
+.student-list .modal .mask{
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    position: fixed;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.student-list .modal-content{
+    background-color: #fff;
+    width: 500px;
+    height: 450px;
+    left: calc(50% - 250px);
+    top: calc(50% - 225px);
+    position: absolute;
+}
+.student-list .modal-content h3{
+    color: #000;
+    padding-left: 20px;
+}

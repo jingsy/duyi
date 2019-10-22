@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style lang="">
+       
+    </style>
+</head>
+<body>
+    
+
+
+    <script>
+
+
+        //创建正则 方法1 字面量
+            // var reg =/abc/;
+            // var str="abce";
+            // reg.test(str);
+        // // /i ignoreCase 忽视大小写
+        // // /m
+
+        // // 创建正则 方法二
+            // var reg =new RegExp("abc","i");
+        
+        // //reg1 跟 reg不同
+            // var reg1 = new RegExp(reg);
+        // //如果不加new 则reg1 reg 是同一个
+            // var reg1 = RegExp(reg);
+
+        // i
+        // g 全局匹配
+            // var reg = /ab/;
+            // var str ="ababababab"
+        //如果不加g 只返回 一个 ab
+        
+        // m 多行匹配   ^a以a开头
+            // var reg = /^a/gm;
+            // var str ="abcd\na"
+        
+        // reg.test(); true/false
+        // str.match(); 
+
+        // var reg = /[01234][01234][01234]/g;
+        // var str = "123401dqwqiwoeqkod";
+        // console.log(reg);
+        //[0-9][A-Z][a-z][A-z][0-9A-z];
+       
+        //[]:表达式
+        //【^】 ^放里面表示 非
+
+        //匹配abc或者bcd    
+        // /(abc | bcd)/g
+
+         // /(abc | bcd)[0-9]/g
+
+         //元字符
+        //   \w : word  字母字符  ===[0-9A-z_]
+        //   \W === [^\w];  除了\w以外的
+
+        // \d ===[0-9]
+        // \D : 非 \d
+
+        // \s : 空白字符 如：空格 制表符（tab），回车，换行。。
+        // 一个\s等于 /s === [/t/n/r/v/f ]
+        // \S : 非 \s
+
+        // \b ===单词边界
+        // \B :非 单词边界
+        //如： "abc cde" 四个单词边界
+
+        // . === 非 \r\n 匹配所有 除了换行
+
+        // \xxx
+        // \ddd
+        // \uxxx
+
+        //量词
+        // n+ 这个变量可以重复出现1-无数次
+        // n* {0, 正无穷}
+        // n? 0-1 
+        // n{X}   x个
+        // n{x,y}  x到y个
+        // n{x, }  x到正无穷
+
+        // d$ 以d结尾
+
+
+
+        //reg.exec(); 由lastIndex控制
+        //reg.lastIndex 游标
+        //注意 不加g 游标就一直在0 加g就变成了游标
+
+        //括号的特殊用法 
+        //   /（\w)\1\1\1/g   ()\1反向引用之前的
+        // "aabb"   /(\w)\1(\w)\2/g 
+        
+        //the-first-name
+        //theFirstName
+
+        // var reg =/-(\w)/g;
+        // var str ="the-first-name";
+        // console.log(str.replace(reg,function($,$1){
+        //     return $1.toUpperCase();
+        // }));
+
+        //正向预查
+        // var str = abaaaa;
+        // var str=/a(?b)/g   b不参加计算
+
+    //    var str = "aaaabbbbcccc" --> abc
+    //    var reg = /(\w)\1*/g
+
+        // aaaaabbbbbcccc倒过来写
+        // var str = "aaaabbbbcccc";
+        
+        // var reg = /(\w)\1*/g;
+        // str.replace(reg,function(str,group,firstIndex,template){
+        //     console.log(str,group,firstIndex,template);
+
+        // })
+        // var str ='1000000000';
+
+        // var str = 'adsfjjbbkkk';
+
+        // var reg = /(\w)(\1)+/g
+        
+
+        
+    </script>
+</body>
+</html>

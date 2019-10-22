@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="test">
+        <ul>
+            <li>li1</li>
+            <li>li2</li>
+            <li>li3</li>
+        </ul>
+        <div>div-1</div>
+        <div>div-2</div>
+    </div>
+
+    <script>
+        //事件冒泡
+            //（要结构上）父子关系元素，子元素渗透到父元素，自底向上
+        
+        //事件捕获
+        //IE没有事件捕获
+            //只有谷歌浏览器上有，
+            //一个对象的一个事件类型同一时间只能有一种模型
+        //先捕获 后冒泡
+
+        //取消事件冒泡
+            //e.stopPropagation()
+            //e.cancelBubble=true;
+        //阻止事件冒泡函数封装
+        // function topBubble(event){
+        //     if(event.stopPropagation){
+        //         e.stopPropagation()
+        //     }else{
+        //         e.cancelBubble=true;
+        //     }
+        // }
+
+        //组织默认事件
+            // document.oncontextmenu = function(e){
+            //     console.log("a");
+            //     e.returnValue = false;
+            //     //阻止鼠标右键菜单
+            // }
+            // //封装组织默认事件
+            // function cancelHandler(event){
+            //     if(event.preventDefault){
+            //         event.preventDefault();
+            //     }else{
+            //         event.returnValue = false;
+            //     }
+            // }
+        
+        //事件对象
+            //var event = e || window.event;
+            //事件源对象
+                // var target = event.target || event.srcElement;
+
+        //事件委托
+        ////利用事件冒泡 和事件源进行处理
+        //优点：
+            //1）性能 不需要循环所有的元素一个个绑定事件
+            //2）灵活 当有新的新的子元素的时 不需要重新绑定事件
+        //一个ul里面有三千个li 要求点哪个li出现哪个的内容
+        //解决：选ul 利用事件冒泡
+            var test = document.getElementById('test');
+            test.onclick = function (e){
+                var event = e || window.event;
+                var target = event.target || event.srcElement;
+                console.log(target.innerText);
+            }
+
+        //封装一个事件兼容函数
+        // addEvent(elem,type,handle){
+        //     if(elem.addEventListener){
+        //         elem.addEventListener(type,handle,false);
+        //     }else if(elem.attachEvent){
+        //         elem.addEvent('on'+ type, function(){
+        //             handle.call(elem);
+        //         });
+        //     }else{
+        //         elem['on' + type] = handle;
+        //     }
+        // }
+
+        //事件解除
+            //1) div.onclick = null;
+            //2) div.removeEventListener('click', 同样函数, false);
+            //3) ele.detachEven('on'+type,fn); 
+
+        
+    </script>
+</body>
+</html>

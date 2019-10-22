@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    1.创建AO对象 activation Object(执行期上下文)
+    2.找形参和变量声明，将变量和形参名作为AO属性名，值为undefined
+    3.将实参值和形参值统一
+    4.在函数体里面找函数声明 值赋予函数体
+    5.然后执行函数，
+    <script>
+    // //   function bar(){
+    // //     function foo(){}
+    // //     return foo;
+    // //     foo=10;
+    // //     var foo=11;
+    // //   }
+    // //   console.log(bar()); //foo function
+
+    //   function bar(){
+    //     function foo(){}
+    //     foo=10;
+    //     var foo=11;
+    //     return foo;//11
+    //   }
+    //   console.log(bar());
+
+        // function demo(e){
+        //     function e(){}
+        //     var b;
+        //     function c(){}
+        //     var a;
+        //     arguments[0]=2; //e=2
+        //     document.write(e);//2
+        //    //if a =undefiend, 里面的语句不会执行
+        //     if(a){
+        //         var b=123;
+        //     }
+        //     var c;
+        //     a=10;
+        //     document.write(b);//undefinde
+        //     f=123;
+        //     document.write(c);// function c
+        //     document.write(a); //10
+        // }
+        // var a;
+        // a=100;
+        // demo(1);
+        // document.write(a); //100
+        // document.write(f); //123
+
+
+
+        // function Person (name){
+        //     this.name=name;
+        // }
+        // var a = new Person("aa");
+        // var obj={};
+        // Person.call(obj,"objname");
+        // var b = new Person("bb");
+        var bb =1;
+        function aa(bb){
+            bb=2;
+            console.log(bb);
+        }
+        aa(bb);
+        console.log(bb);
+
+        
+
+    </script>
+</body>
+</html> 

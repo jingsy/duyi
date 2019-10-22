@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    防抖：<input type="text" id="ipt">
+    节流：<button id="btn">1</button>
+    <script>
+        var ipt = document.getElementById('ipt');
+        //模拟ajax发送请求
+        function Ajax(e){
+            console.log(this.value); 
+        }
+        ipt.oninput = debounce(Ajax,1000);
+        
+        //防抖
+        function debounce(handler,delay){
+            var timer = null;
+            return function(){
+                var self = this;
+                var arg = arguments;
+                clearTimeout(timer);
+                timer=setTimeout(function(){
+                    handler.apply(self,arg);
+                },delay)
+            }
+        }
+
+
+
+        //节流
+        var btn = document.getElementById('btn');
+        function buy (){
+            this.innerText++;
+        }
+        btn.onclick = throttle(buy,1000);
+
+        function throttle(handler,wait){
+            var lastTime = 0; 
+            return function(e){
+                var curTime = + new Date();
+                if(curTime-lastTime>wait){
+                    handler.apply(this,arguments);
+                    lastTime = curTime;
+                }
+            }
+        }
+   
+    
+    </script>
+</body>
+</html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+            #hd{
+                height:50px;
+                background: #666;
+                text-align: center;
+            }
+            #bd{
+                /*左右栏通过添加负的margin放到正确的位置了，此段代码是为了摆正中间栏的位置*/
+                padding:0 200px 0 180px;
+                height:100px;
+            }
+            #middle{
+                float:left;
+                width:100%;/*左栏上去到第一行*/
+                height:100px;
+                background:blue;
+            }
+            #left{
+                float:left;
+                width:180px;
+                height:100px;
+                margin-left:-100%;
+                background:#0c9;
+                /*中间栏的位置摆正之后，左栏的位置也相应右移，通过相对定位的left恢复到正确位置*/
+                position:relative;
+                left:-180px;
+            }
+            #right{
+                float:left;
+                width:200px;
+                height:100px;
+                margin-left:-200px;
+                background:#0c9;
+                /*中间栏的位置摆正之后，右栏的位置也相应左移，通过相对定位的right恢复到正确位置*/
+                position:relative;
+                right:-200px;
+            }
+            #footer{
+                height:50px;
+                background: #666;
+                text-align: center;
+            }
+            </style>
+</head>
+
+<body>
+        <div id="hd">header</div>
+        <div id="bd">
+          <div id="middle">middle</div>
+          <div id="left">left</div>
+          <div id="right">right</div>
+        </div>
+        <div id="footer">footer</div>
+
+    <script>
+    //  知识点
+    //1.伪类选择器
+    //2.行级元素 i a b span strong em del
+    //3.快级元素 p ul li h1 h2 div form ol 
+    //4.特殊 行级块元素：img 内容决定大小 可以改宽高 inline-block
+    //5.一个bug 连续图片中的空隙 凡是带有inline的元素 都有文字特性 所以
+    //有4像素的空格 解决办法：去掉空格 或者：margin-left:-6px
+
+    //6.成哥的开发经验：先定义css功能 在写结构 模块化开发 
+
+    //7.盒子模型 
+        //盒模型计算
+        //margin不算盒子 记住
+    //远视图，一级一级往上加
+
+    //8.position
+        //relative: 保留原位置进行定位
+        //relative:相对于自己原来的位置进行定位
+        //absolute定位：相对于最近的有定位的父级进行定位
+    //为什么用relative作为参照物 因为absolute会脱离文档流⚠️
+
+    //如何居中
+    //position:abusolte
+    //left:50%
+    //top:50%
+    //margin:-width/2 0  0 - 
+
+    //9.两栏布局（自己写一下）
+
+    //10. margin塌陷： 垂直方向 嵌套的父和子 div 的margin取最大的
+    //解决办法 1: 给父亲加 border-top （不好）
+    //解决2: 给父亲加bfc 改变渲染规则
+    //如何触发一个盒子的bfc
+        //方法1:position: absolute;
+        //2:display:inline-block
+        //3:float
+        //4.overflow:hidden
+        //我们一般用哪个呢？
+        //都会有副影响，根据需求使用
+
+    //11.margin合并问题
+        //兄弟元素 上下margin合并了
+        //解决办法：加bfc
+        //真实开发里：不解决这个bug 我们可以多加一点像素，因为这里会改html
+        //所以不好
+
+    //12.float
+        //1.浮动 父级的边界 不够就会换行
+        //2.可以加各种margin
+        //3.float元素产生了浮动流：
+            //所以产生了浮动流的元素，块级元素看不到他们
+            //产生了bfc的元素，和文本类属性的元素（带inline的）
+            //以及文本都能看到
+            //总结一下：只有块级看不到
+        //4.清除浮动流：
+            //     <!-- 清除浮动：
+            // 	不是不用浮动 而是清除浮动产生的不良影响 -->
+            // 	<!-- 当父盒子没有定义高度，嵌套的盒子浮动之后，下边的元素会发生位置错误 -->
+
+            // 清除浮动的方法：
+            // 	clear:left | right | both
+            // 	最常用的是both
+
+            // 	1.*额外标签法：1.在最后一个浮动元素后添加标签，然后用clear：both
+            // 		如<div style="clear:both;"></div> 
+            // 	这种方法不推荐使用
+
+            // 	2.*overflow:
+            // 		给浮动的父级元素使用overflow:hidden   ----bfc 格式化上下文
+            // 		*如果有内容出了盒子，不能用这个方法
+
+
+
+            // 	在父级元素增加一个类（伪元素清除浮动）
+            	// 3.*clearfix  
+            		// .clearfix:after{
+            		// 	content:".";
+            		// 	display: block; 
+            		// 	height;0;
+            		// 	line-height:0;
+            		// 	visibility:hidden;
+            		// 	clear:both;
+            		// }
+
+            		// //为了兼容ie浏览器
+            		// .clearfix{
+            		// 	zoom:1;
+            		// }
+
+            //成哥的方法
+                //.wrapper:after{
+                //     content:"";
+                //     clear:both;
+                //     display:block;
+                // }
+            //postion:absoulute,float 会自动转换为inline-block 
+    </script>
+</body>
+
+</html>

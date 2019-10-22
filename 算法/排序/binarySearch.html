@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        //二分查找法
+
+        // var arr =[1,2,3,5,7,8,88];
+        // function binarySearch(arr,key){
+        //     // arr.sort(function(a,b){return a-b});
+        //     var low =0;
+        //     var hi=arr.length-1;
+        //     while (low<=hi) {
+        //         // var mid = parseInt(low+(hi-low)/2);
+        //         var mid= parseInt((low+hi)/2)
+        //         if(arr[mid]==key){
+        //             return mid;
+        //         }
+        //         if(arr[mid]>key){
+        //             hi=mid-1
+        //         }
+        //         if(arr[mid]<key){
+        //             low=mid+1
+        //         }
+        //     }
+        //     return -1;
+        // }
+        
+        // console.log(binarySearch(arr,3))
+        // console.log(binarySearch(arr,0,10,3))
+
+        // //递归版
+        // function binarySearch(arr,low,hi,key){
+        //     mid = low+(hi-low)/2;
+
+        //     if(low>hi){
+        //         return -1;
+        //     }
+        //     if(arr[mid]==key){
+        //         return mid;
+        //     }else{
+        //         if(arr[mid]>key){
+        //             return binarySearch(arr,low,mid-1,key);
+        //         }else{
+        //             return binarySearch(arr,mid+1,hi,key);
+        //         }
+        //     }
+        // }
+
+        //利用二分查找 统计有序数组数字出现的次数
+        var arr = [1, 2, 2, 3, 3, 4, 5, 6, 7, 8, 8];
+        var arr1 = [1, 2, 2, 3, 3, 3, 4, 5, 6, 7, 8, 8];
+        var arr2 = [1, 2,2,2,2,2, 3, 3, 3, 4, 5, 6, 7, 8,8,8];
+        var arr3 = [1, 2, 2, 3, 3, 3, 4, 5, 6, 7, 8, 8];
+
+        function GetNumberOfK(data, k) {
+            
+            function binarySearch (data, k) {
+                var low = 0;
+                var high = data.length - 1;
+
+                while (low <= high) {
+                    var mid = parseInt((low + high) / 2);
+                    if (data[mid] == k) {
+                        return mid
+                    }
+                    if (data[mid] > k) {
+                        high = mid - 1
+                    }
+                    if (data[mid] < k) {
+                        low = mid + 1
+                    }
+                }
+                return -1;
+            }
+            var indexOfK = binarySearch(data,k);
+            // console.log('k is '+indexOfK);
+            
+            var count = 1;
+            for (var j = indexOfK - 1; j >= 0; j--) {
+                if (data[j] == k) {
+                    count++
+                } else {
+                    break
+                }
+            }
+            for (var j = indexOfK + 1; j < data.length; j++) {
+                if (data[j] == k) {
+                    count++
+                    // console.log('count is '+count)
+                } else {
+                    break
+                }
+            }
+            return count
+        }
+
+
+
+      
+    </script>
+</body>
+
+</html>

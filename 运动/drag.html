@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <div id="myDiv">
+    </div>
+    
+
+    <script>
+       var divObj = document.getElementsByTagName('div')[0];
+        var body=document.getElementsByTagName('body')[0];
+
+        divObj.onmousedown = function(e){
+            var event = event || e
+            var disX = event.clientX - this.offsetLeft;
+            var disY = event.clientY -this.offsetTop;
+            var self = this;
+            document.onmousemove = function(e){
+                var event = event || e;
+                var newLeft = event.clientX - disX;
+                var newTop = event.clientY - disY;
+                self.style.left = newLeft + 'px';
+                self.style.top = newTop + 'px';
+            }
+            document.onmouseup = function(){
+                document.onmouseup=null;
+                document.onmousemove=null;
+                // startMove(self,speedX,speedY);
+            }  
+        }
+    
+    
+    </script>
+</body>
+</html>

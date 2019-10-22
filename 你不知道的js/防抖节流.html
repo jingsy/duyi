@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style></style>
+</head>
+
+<body>
+
+    shuru: <input type="text" id="input">
+    <div id="div">1</div>
+    <script>
+                //防抖
+            //     function debounce(handler,delay){
+            //         var timer =null;
+            //         return function(){
+            //             var self=this;
+            //             var arg = arguments;
+            //             clearTimeout(timer);
+            //             timer = setTimeout(function(){
+            //                 handler.apply(self,arg)
+            //             },1000);
+            //         }
+            //     }
+
+            // // //节流 函数大于一个周期才会执行 等待下一次时间之后 才能
+            // //执行有效操作
+            // // // throttle
+            // // //窗口调整 页面滚动 疯狂点击
+
+            //     function throttle(handler, wait){
+            //         var lastTime = 0;
+            //         return function(){
+            //             var nowTime = new Date().getTime();
+            //             if(nowTime-lastTime > wait){
+            //                 handler.apply(this,arguments)
+            //                 lastTime=nowTime;
+            //             }
+            //         }
+            //     }    
+
+                // function buy(e){
+                //     // console.log()
+                //     oDiv.innerText =parseInt(oDiv.innerText)+1;
+                // }
+                // var oDiv = document.getElementById('div');
+                // oDiv.onclick=throttle(buy,1000);
+            
+      
+
+            //
+            // function debounce(handler,delay){
+            //     var timer =null;
+            //     return function(){
+            //         var self = this;
+            //         var arg = arguments;
+            //         clearTimeout(timer)
+            //         timer = setTimeout(()=>{
+            //             handler.apply(this,arg);
+            //         },delay)
+            //     }
+            // }
+            // function ajax(e){
+            //     console.log(this.value);
+            // }
+
+            // var input = document.getElementById('input');
+            // input.oninput = debounce(ajax,1000);
+
+            //
+            // var div = document.getElementById('div');
+            // div.onclick = throttle(buy,2000);
+
+            // function buy(){
+            //     div.innerText=parseInt(div.innerText)+1;
+            // }
+            // function throttle(handler,delay){
+            //     var lastTime = 0;
+            //     return function(){
+            //         var nowTime = +new Date();
+            //         if(nowTime-lastTime>delay){
+            //             handler.apply(this,arguments);
+            //             lastTime = nowTime;
+            //         }
+            //     }
+            // }
+
+            // function throttle(handler,delay){
+            //     var lastTime =0;
+            //     return function(){
+            //         var nowTime = +new Date();
+            //         if(nowTime-lastTime>0){
+            //             handler.apply(this,arguments);
+            //             lastTime=nowTime
+            //         }
+            //     }
+            // }
+
+
+            func
+    </script>
+</body>
+
+</html>

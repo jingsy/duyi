@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        //try里面的发生的错误 不会执行错误后try里面的代码
+        try{
+
+        }catch(e){
+
+        }
+    
+        //错误类型
+        //1.EvalError:eval()的使用与定义不一致
+        //2.RangeError：数值越界
+        //3.ReferenceError：非法或不能识别的引用数值
+        //4.SyntaxError
+        //5.TypeError
+        //6.URIError:地址错误
+
+
+        //ES5严格模式
+        //页面开头 "use strict",可以写到局部里，写了就遵守5.0的严格模式，
+        //es5严格模式：和3产生冲突的规则
+        //推荐使用局部
+        //不允许 with（），（改变作用域链）
+        //不允许：arguments.callee,func.caller
+        //局部this必须被赋值
+        //拒绝重复属性，和参数
+
+         //with的运用，with改变作用域，在es5严格模式下不能用
+        // var obj  ={
+        //     a:123
+        // }
+        // function test (){
+        //     var a =234;
+        //     with(obj){
+        //         console.log(a);    //123
+        //     }
+        // }
+    </script>
+</body>
+</html>
